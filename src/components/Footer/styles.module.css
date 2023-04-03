@@ -1,0 +1,27 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* padding: 78px 158px; */
+  padding: 78px;
+  padding-left: calc(50% - 742px);
+  padding-right: calc(50% - 742px);
+
+  background: linear-gradient(98.19deg, #693195 8.79%, #56009a 96.11%);
+}
+
+.footer__links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 120px;
+}
+
+.footer__link {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+
+  margin-bottom: 10px;
+}

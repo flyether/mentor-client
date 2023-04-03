@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 40px 40px 60px 60px;
+
+  background-size: contain;
+  background-repeat: no-repeat !important;
+  background-position: right !important;
+  border-radius: 50px;
+}
+
+.textWrapper {
+  width: 680px;
+  padding-top: 20px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 55px;
+
+  margin-bottom: 20px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 33px;
+}
+
+.number {
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 66px;
+
+  color: #8d8d8d;
+}
