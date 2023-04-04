@@ -1,18 +1,21 @@
 {
   "files": {
-    "main.css": "/mentor-client/static/css/main.fa947ebd.css",
-    "main.js": "/mentor-client/static/js/main.fd448e90.js",
+    "main.css": "/mentor-client/static/css/main.0461ea1c.css",
+    "main.js": "/mentor-client/static/js/main.1e2ab55a.js",
     "static/media/cone.svg": "/mentor-client/static/media/cone.e5051fa70c19d68da24b14d1161f6a53.svg",
+    "static/media/user.png": "/mentor-client/static/media/user.f1892270f91d1604c976.png",
+    "static/media/logoMentor.svg": "/mentor-client/static/media/logoMentor.2094d489878455ca90b1.svg",
     "static/media/logo.svg": "/mentor-client/static/media/logo.cc4e456293aadd657bb8ec698171fa8b.svg",
     "static/media/eye-hidden.svg": "/mentor-client/static/media/eye-hidden.3afceaa9d48a4302a610.svg",
     "static/media/eye.svg": "/mentor-client/static/media/eye.2578164c5475bf13b9e2.svg",
     "index.html": "/mentor-client/index.html",
+    "static/media/upload.svg": "/mentor-client/static/media/upload.338a15d2ea4d8269beed.svg",
     "static/media/arrow-left.svg": "/mentor-client/static/media/arrow-left.d8edcd297cbca92571b1438106562523.svg",
-    "main.fa947ebd.css.map": "/mentor-client/static/css/main.fa947ebd.css.map",
-    "main.fd448e90.js.map": "/mentor-client/static/js/main.fd448e90.js.map"
+    "main.0461ea1c.css.map": "/mentor-client/static/css/main.0461ea1c.css.map",
+    "main.1e2ab55a.js.map": "/mentor-client/static/js/main.1e2ab55a.js.map"
   },
   "entrypoints": [
-    "static/css/main.fa947ebd.css",
-    "static/js/main.fd448e90.js"
+    "static/css/main.0461ea1c.css",
+    "static/js/main.1e2ab55a.js"
   ]
 }
