@@ -8,9 +8,10 @@ import styles from './loginPage.module.css';
 const LoginPage = () => {
   const { authorization } = useAppSelector((state) => state.user);
   const navigate = useNavigate();
+
   useEffect(() => {
     if (authorization) {
-      navigate('/', { replace: true });
+      navigate('/profile', { replace: true });
     }
   }, [authorization, navigate]);
 

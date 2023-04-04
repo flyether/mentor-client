@@ -1,4 +1,4 @@
-import { AuthorizationData, User, RegData, VerificationToken } from '../../models/';
+import { AuthorizationData, User, RegData, VerificationToken, UserResponse } from '../../models/';
 import { Url } from '../../models/constants';
 
 import { setUser } from '../slices/UserSlice';
@@ -13,7 +13,7 @@ export const AuthorizationUserAPI = commonApi.injectEndpoints({
         body: userInfo,
       }),
     }),
-    authorizationUser: build.mutation<User, AuthorizationData>({
+    authorizationUser: build.mutation<UserResponse, AuthorizationData>({
       query: (userInfo) => ({
         url: '/login',
         method: 'POST',

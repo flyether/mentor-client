@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ErrorModal } from '.';
 import { VerificationToken } from '../../../models';
-import { setUserAuthorization, useAppDispatch } from '../../../store';
+import { setRoleStor, setUserAuthorization, useAppDispatch } from '../../../store';
 import { AuthorizationUserAPI } from '../../../store/services/UserService';
 import { Button } from '../Button/Button';
 
@@ -36,6 +36,8 @@ export const ModalConfirm: FC = () => {
       if (res) {
         localStorage.setItem('authorization', 'authorization');
         dispatch(setUserAuthorization('authorization'));
+        localStorage.setItem('role', res.role);
+        dispatch(setRoleStor(res.role));
         navigate('/profile', { replace: true });
       }
     } else {

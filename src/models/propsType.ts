@@ -8,3 +8,8 @@ export type PropsModalParent = {
   close: () => void;
   closeParent?: () => void;
 };
+
+export type CheckboxProps = {
+  checked: boolean;
+  onChange: (checked: boolean) => void;
+};

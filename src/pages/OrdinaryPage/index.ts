@@ -1,0 +1,1 @@
+export { OrdinaryPage } from './OrdinaryPage';

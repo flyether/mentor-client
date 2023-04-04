@@ -27,6 +27,17 @@ export type User = {
   authorization?: string;
 };
 
+export type UserUpdate = {
+  name: string;
+  email: string;
+  lastName: string;
+  role?: string;
+  description?: string;
+};
+export type UserResponse = {
+  user: User;
+};
+
 export interface MentorUpdate {
   id: string;
   body: Mentor;
@@ -70,3 +81,8 @@ export interface Menty {
   description?: string | string[];
   token?: string;
 }
+
+export type InitialValues = {
+  name: string;
+  lastName: string;
+};

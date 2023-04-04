@@ -1,19 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { User } from '../../models/interfaces';
 
-const initialState: User = {
-  authorization: '',
-  name: '',
-  email: '',
-  role: '',
-  lastName: '',
-};
+const userFromLocalStorage = localStorage.getItem('user');
+console.log(userFromLocalStorage);
+const initialState: User = userFromLocalStorage
+  ? JSON.parse(userFromLocalStorage)
+  : {
+      authorization: '',
+      name: '',
+      email: '',
+      role: '',
+      lastName: '',
+    };
 
-if (
-  localStorage.getItem('authorization') &&
-  localStorage.getItem('authorization') === 'authorization'
-) {
+if (localStorage.getItem('authorization')) {
   initialState.authorization = localStorage.getItem('authorization') as string;
+}
+if (localStorage.getItem('role')) {
+  initialState.role = localStorage.getItem('role') as string;
 }
 
 const userSlice = createSlice({
@@ -23,10 +27,15 @@ const userSlice = createSlice({
     setUserName(state, action) {
       state.name = action.payload;
     },
+    setUserLastName(state, action) {
+      state.lastName = action.payload;
+    },
     setUserAuthorization(state, action) {
       state.authorization = action.payload;
     },
-
+    setRoleStor(state, action) {
+      state.role = action.payload;
+    },
     setUser(state, action) {
       return { ...action.payload };
     },
@@ -41,5 +50,12 @@ const userSlice = createSlice({
   },
 });
 
-export const { setUserAuthorization, setUserName, setUser, removeUser } = userSlice.actions;
+export const {
+  setUserAuthorization,
+  setUserName,
+  setUser,
+  removeUser,
+  setRoleStor,
+  setUserLastName,
+} = userSlice.actions;
 export default userSlice.reducer;

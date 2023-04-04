@@ -1,0 +1,64 @@
+.lb1 {
+  margin: 0 0 0;
+}
+#highload1,
+#highload2 {
+  display: none;
+}
+#highload1 + .lb1,
+#highload1 + .lb1::before,
+#highload1 + .lb1::after,
+#highload2 + .lb1,
+#highload2 + .lb1::before,
+#highload2 + .lb1::after {
+  transition: all 0.3s;
+}
+#highload1 + .lb1,
+#highload2 + .lb1 {
+  display: inline-block;
+  position: relative;
+  width: 52px;
+  height: 32px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+#highload1 + .lb1::after,
+#highload2 + .lb1::after {
+  border-radius: 50%;
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  background-color: rgb(134, 134, 134);
+}
+
+#highload1:checked + .lb1::after,
+#highload2:checked + .lb1::after {
+  display: flex;
+  justify-content: center;
+  left: 23px;
+  background-color: white;
+  align-items: center;
+  content: '✔ ';
+  color: black;
+}
+
+#highload1 + .lb1,
+#highload2 + .lb1 {
+  background-color: #ccc;
+}
+
+#highload1:checked + .lb1,
+#highload2:checked + .lb1 {
+  background-color: #903bd3;
+}
+#highload1:checked + .lb1::before,
+#highload2:checked + .lb1::before {
+  color: black;
+  position: absolute;
+  right: 10px;
+  z-index: 5;
+}

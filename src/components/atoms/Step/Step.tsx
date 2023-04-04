@@ -10,7 +10,6 @@ type Props = {
 };
 
 export const Step: FC<Props> = ({ img, text, title, number }) => {
-  console.log(img);
   return (
     <div
       style={{

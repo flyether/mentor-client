@@ -8,6 +8,7 @@ import { ServerError } from '../atoms/Modal/ServerError/server-error';
 
 import { Footer } from '../Footer/Footer';
 import { Header } from '../Header/Header';
+import { Responsive } from '../sideBar';
 import { displayError } from './handle-errors';
 
 import styles from './layout.module.css';
@@ -57,7 +58,10 @@ export const Layout = () => {
         />
       )}
       <Header />
-      <Outlet />
+      <div className={styles.wrapper}>
+        <Responsive />
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

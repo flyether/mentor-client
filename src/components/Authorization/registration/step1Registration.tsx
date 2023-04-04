@@ -3,7 +3,7 @@ import { useForm, FieldValues } from 'react-hook-form';
 import cnBind from 'classnames/bind';
 import cn from 'classnames';
 
-import { useAppDispatch } from '../../../store';
+import { setUserAuthorization, useAppDispatch } from '../../../store';
 import { Step2Registration } from './step2Registration';
 import { Button } from '../../atoms/Button/Button';
 
@@ -11,7 +11,7 @@ import styles from './registration.module.css';
 import { setRegEmail, setRegPassword, setRegRole } from '../../../store/slices/RegSlice';
 import { PASSWORD_REGEX } from '../../../models/constants';
 import { validationOnChange } from '../../../utils/validation';
-import { CasePassword } from '.';
+import { CasePassword, CasePasswordGray } from '.';
 
 const cx = cnBind.bind(styles);
 
@@ -19,7 +19,6 @@ export const Step1Registration: FC = () => {
   const [isStep2, setIsStep2] = useState(false);
   const [isMentor, setIsMentor] = useState(false);
   const [isMenty, setIsMenty] = useState(true);
-  const [isRoleError, setRoleError] = useState(false);
   const [role, setRole] = useState('mentee');
   const dispatch = useAppDispatch();
   const [focusStyleEmail, setFocusStyleEmail] = useState(false);
@@ -78,17 +77,12 @@ export const Step1Registration: FC = () => {
   };
 
   const submitForm = async (data: FieldValues) => {
-    console.log(data.password);
-    if (role) {
-      dispatch(setRegEmail(data.email));
-      dispatch(setRegPassword(data.password));
-      dispatch(setRegRole(role));
-      setIsStep2(true);
-    } else {
-      setRoleError(true);
-      alert('выбирите роль');
-      return;
-    }
+    dispatch(setRegEmail(data.email));
+    dispatch(setRegPassword(data.password));
+    dispatch(setRegRole(role));
+    setIsStep2(true);
+    localStorage.setItem('role', role);
+    dispatch(setUserAuthorization(role));
   };
 
   if (isStep2) {
@@ -172,15 +166,15 @@ export const Step1Registration: FC = () => {
             })}
             onClick={togglePasswordVisibility}
           />
-
-          <CasePassword message={errors?.passwordOn?.message as string} />
+          {errors?.passwordOn ? (
+            <CasePassword message={errors?.passwordOn?.message as string} />
+          ) : (
+            <CasePasswordGray />
+          )}
         </div>
         <Button type="submit" size="xl">
           Далее
         </Button>
-        {/* <Link to="/login" className={styles.entrance}>
-          назад к логину
-        </Link> */}
       </form>
     </div>
   );

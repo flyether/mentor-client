@@ -49,7 +49,10 @@
 /* OUTLINED */
 
 .outlined {
+  color: #fff;
   border: 1px solid #903bd3;
+  background: #282D3F;
+  width: 120px;
 }
 
 /* DISABLED */

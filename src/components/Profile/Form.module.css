@@ -1,0 +1,38 @@
+.form{
+  margin-bottom: 12px;
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.container {
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.text{
+font-weight: 400;
+font-size: 15px;
+line-height: 20px;
+color: #C0C0C0;
+margin-bottom: 5px;
+}
+
+.textarea {
+  resize: none;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 615px;
+  height: 140px;
+  background: white;
+  border-radius: 10px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 27px;
+  color: black;
+}

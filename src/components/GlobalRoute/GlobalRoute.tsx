@@ -6,12 +6,14 @@ import ErrorBoundary from '../../utils/ErrorBoundary';
 import LoginPage from '../../pages/LoginPage';
 import RegistrationPage from '../../pages/RegistrationPage';
 import { Layout } from '../layout';
-import EmailConfirmation from '../../pages/EmailСonfirmation';
+import EmailConfirmation from '../../pages/EmailСonfirmationPage';
 import { Url } from '../../models/constants';
 import { ProtectedRoute } from './protected-route';
 import { useAppSelector } from '../../store';
 import ProfilePage from '../../pages/ProfilePage';
 import { ForgotPassword } from '../Authorization/login';
+import { OrdinaryPage } from '../../pages/OrdinaryPage';
+import { SecurityPage } from '../../pages/SecurityPage';
 
 const GlobalRoute = () => {
   const { authorization } = useAppSelector((state) => state.user);
@@ -31,6 +33,22 @@ const GlobalRoute = () => {
           element={
             <ProtectedRoute authorization={authorization}>
               <ProfilePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={Url.PATH_ORDINARY}
+          element={
+            <ProtectedRoute authorization={authorization}>
+              <OrdinaryPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={Url.PATH_SECURITY}
+          element={
+            <ProtectedRoute authorization={authorization}>
+              <SecurityPage />
             </ProtectedRoute>
           }
         />

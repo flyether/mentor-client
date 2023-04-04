@@ -1,0 +1,28 @@
+.container{
+   display: flex;
+   flex-direction: column;
+   width: 260px;
+   gap: 30px;
+   padding: 20px  0 0 20px;
+border-right: #3B4050 solid 2px;
+margin-left: 150px;
+}
+.settings{
+font-weight: 800;
+font-size: 24px;
+line-height: 33px;
+}
+
+.link,
+.link__active
+{
+   width: 100%;
+   padding: 10px 14px;
+
+   font-size: 20px;
+}
+
+.link__active{
+   border-left: 4px solid  var(--purple-color);
+   background-color: #3B4050;
+   }

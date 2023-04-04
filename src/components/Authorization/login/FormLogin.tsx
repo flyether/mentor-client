@@ -6,12 +6,12 @@ import cn from 'classnames';
 
 import { AuthorizationUserAPI } from '../../../store/services/UserService';
 import { AuthorizationData } from '../../../models';
-import { ErrorModal } from '../../atoms/Modal';
+// import { ErrorModal } from '../../atoms/Modal';
 import { Button } from '../../atoms/Button/Button';
 import { ForgotPassword } from './forgot-password';
 
 import styles from '../registration/registration.module.css';
-import { setUserAuthorization, useAppDispatch } from '../../../store';
+import { setRoleStor, setUserAuthorization, useAppDispatch } from '../../../store';
 
 const cx = cnBind.bind(styles);
 
@@ -64,14 +64,16 @@ const FormLogin: FC = () => {
       password: data.password,
     };
 
-    console.log(userData);
     const res = await authorizationUser(userData).unwrap();
     if (res) {
       localStorage.setItem('authorization', 'authorization');
       dispatch(setUserAuthorization('authorization'));
+      localStorage.setItem('role', role);
+      dispatch(setRoleStor(role));
+      localStorage.setItem('user', JSON.stringify(res.user));
     }
 
-    navigate('/profile', { replace: true });
+    // navigate('/profile', { replace: true });
   };
   const handleForgot = () => setForgot(true);
 

@@ -14,3 +14,7 @@ body {
 .hidden {
   display: none;
 }
+
+:root {
+  --purple-color: rgba(86, 0, 154, 1);
+}

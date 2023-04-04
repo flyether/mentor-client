@@ -2,6 +2,8 @@ import { configureStore, ThunkAction, Action, getDefaultMiddleware } from '@redu
 import { commonApi } from './services/common.api';
 import userSlice from './slices/UserSlice';
 import regSlice from './slices/RegSlice';
+import userUpdateSlice from './slices/UserUpdateSlice';
+
 import { setupListeners } from '@reduxjs/toolkit/query';
 
 export const store = configureStore({
@@ -9,6 +11,7 @@ export const store = configureStore({
     [commonApi.reducerPath]: commonApi.reducer,
     user: userSlice,
     registration: regSlice,
+    updateUser: userUpdateSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(commonApi.middleware),
 });

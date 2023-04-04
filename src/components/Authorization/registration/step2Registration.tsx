@@ -6,13 +6,12 @@ import cnBind from 'classnames/bind';
 import { useAppSelector } from '../../../store';
 import { Button } from '../../atoms/Button/Button';
 
-import styles from './registration.module.css';
 import arrow from '../../../assets/svg/arrow-left.svg';
 import { Step1Registration } from '.';
 import { RegData } from '../../../models';
 import { AuthorizationUserAPI } from '../../../store/services/UserService';
 import { Modal } from '../../atoms/Modal';
-
+import styles from './registration.module.css';
 const cx = cnBind.bind(styles);
 
 export const Step2Registration: FC = () => {
@@ -78,7 +77,10 @@ export const Step2Registration: FC = () => {
               })}
               {...register('name', {
                 minLength: 2,
-                pattern: /[a-zA-Zа-яА-Я]$/,
+                pattern: {
+                  value: /[a-zA-Zа-яА-Я]$/,
+                  message: 'Поле "Имя" должно содержать   буквы кириллицы илм латинского алфавита',
+                },
                 required: 'Поле «Имя» должно быть заполнено',
               })}
               onInput={() => clearErrors('name')}
@@ -92,8 +94,7 @@ export const Step2Registration: FC = () => {
             <div className={styles.errorDivWrapper}>
               {errors?.name && (
                 <div className={styles.errorDiv}>
-                  {(errors?.email?.message as string) ||
-                    'Поле "Имя" должно содержать   буквы киоиллицы илм латинского алфавита'}
+                  {(errors?.name?.message as string) || 'ошибка не продуманая'}
                 </div>
               )}
             </div>
@@ -105,7 +106,11 @@ export const Step2Registration: FC = () => {
               })}
               {...register('lastName', {
                 minLength: 2,
-                pattern: /[a-zA-Zа-яА-Я]$/,
+                pattern: {
+                  value: /[a-zA-Zа-яА-Я]$/,
+                  message:
+                    'Поле "Фамилия" должно содержать   буквы кириллицы илм латинского алфавита',
+                },
                 required: 'Поле «Фамилия» должно быть заполнено',
               })}
               onInput={() => clearErrors('lastName')}
@@ -118,7 +123,9 @@ export const Step2Registration: FC = () => {
             />
             <div className={styles.errorDivWrapper}>
               {errors?.lastName && (
-                <div className={styles.errorDiv}> Поле не может быть пустым </div>
+                <div className={styles.errorDiv}>
+                  {(errors?.lastName?.message as string) || 'ошибка не продуманая'}
+                </div>
               )}
             </div>
           </div>

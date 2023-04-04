@@ -2,13 +2,37 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  max-width: 1440px;
   padding: 20px;
   padding-left: calc(50% - 742px);
   padding-right: calc(50% - 742px);
+  margin: auto;
 }
 
 .button_logo {
-  min-width: 107px;
-  padding: 10px;
+  width: 238px;
+  height: 56px;
+  background-image: url(../../assets/svg/logoMentor.svg);
+  background-size: cover;
+  cursor: pointer;
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+.user__pick {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.name{
+  font-weight: 500;
+font-size: 22px;
+line-height: 30px;
+word-spacing: 0.2em; 
+}
+
