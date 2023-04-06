@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/mentor-client/static/css/main.c635972e.css",
+    "main.js": "/mentor-client/static/js/main.18116ee6.js",
+    "static/media/cone.svg": "/mentor-client/static/media/cone.e5051fa70c19d68da24b14d1161f6a53.svg",
+    "static/media/user.png": "/mentor-client/static/media/user.f1892270f91d1604c976.png",
+    "static/media/logoMentor.svg": "/mentor-client/static/media/logoMentor.2094d489878455ca90b1.svg",
+    "static/media/logo.svg": "/mentor-client/static/media/logo.cc4e456293aadd657bb8ec698171fa8b.svg",
+    "static/media/eye-hidden.svg": "/mentor-client/static/media/eye-hidden.3afceaa9d48a4302a610.svg",
+    "static/media/eye.svg": "/mentor-client/static/media/eye.2578164c5475bf13b9e2.svg",
+    "index.html": "/mentor-client/index.html",
+    "static/media/upload.svg": "/mentor-client/static/media/upload.338a15d2ea4d8269beed.svg",
+    "static/media/arrow-left.svg": "/mentor-client/static/media/arrow-left.d8edcd297cbca92571b1438106562523.svg",
+    "main.c635972e.css.map": "/mentor-client/static/css/main.c635972e.css.map",
+    "main.18116ee6.js.map": "/mentor-client/static/js/main.18116ee6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c635972e.css",
+    "static/js/main.18116ee6.js"
+  ]
+}
