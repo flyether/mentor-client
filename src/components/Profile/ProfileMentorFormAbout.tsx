@@ -189,6 +189,7 @@ const ProfileMentorFormAbout = () => {
             {coastDollar ? '$' : '₽'}
           </button>
         </div>
+        <input name="highload1" type="checkbox" />
       </div>
     </form>
   );

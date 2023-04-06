@@ -6,7 +6,6 @@ console.log(userFromLocalStorage);
 const initialState: User = userFromLocalStorage
   ? JSON.parse(userFromLocalStorage)
   : {
-      authorization: '',
       name: '',
       email: '',
       role: '',
@@ -30,9 +29,6 @@ const userSlice = createSlice({
     setUserLastName(state, action) {
       state.lastName = action.payload;
     },
-    setUserAuthorization(state, action) {
-      state.authorization = action.payload;
-    },
     setRoleStor(state, action) {
       state.role = action.payload;
     },
@@ -50,12 +46,5 @@ const userSlice = createSlice({
   },
 });
 
-export const {
-  setUserAuthorization,
-  setUserName,
-  setUser,
-  removeUser,
-  setRoleStor,
-  setUserLastName,
-} = userSlice.actions;
+export const { setUserName, setUser, removeUser, setRoleStor, setUserLastName } = userSlice.actions;
 export default userSlice.reducer;

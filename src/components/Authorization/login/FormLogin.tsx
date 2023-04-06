@@ -11,7 +11,8 @@ import { Button } from '../../atoms/Button/Button';
 import { ForgotPassword } from './forgot-password';
 
 import styles from '../registration/registration.module.css';
-import { setRoleStor, setUser, setUserAuthorization, useAppDispatch } from '../../../store';
+import { setRoleStor, setUser, useAppDispatch } from '../../../store';
+import { setUserAuthorization } from '../../../store/slices/AuthorizationSlice';
 
 const cx = cnBind.bind(styles);
 
@@ -66,15 +67,15 @@ const FormLogin: FC = () => {
 
     const res = await authorizationUser(userData).unwrap();
     if (res) {
-      localStorage.setItem('authorization', 'authorization');
-      dispatch(setUserAuthorization('authorization'));
       localStorage.setItem('role', role);
       dispatch(setRoleStor(role));
       localStorage.setItem('user', JSON.stringify(res.user));
       dispatch(setUser(res.user));
+      localStorage.setItem('authorization', 'authorization');
+      dispatch(setUserAuthorization('authorization'));
     }
 
-    // navigate('/profile', { replace: true });
+    navigate('/profile', { replace: true });
   };
   const handleForgot = () => setForgot(true);
 

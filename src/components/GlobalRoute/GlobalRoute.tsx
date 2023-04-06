@@ -16,7 +16,7 @@ import { OrdinaryPage } from '../../pages/OrdinaryPage';
 import { SecurityPage } from '../../pages/SecurityPage';
 
 const GlobalRoute = () => {
-  const { authorization } = useAppSelector((state) => state.user);
+  const { authorization } = useAppSelector((state) => state.authorization);
   return (
     <Routes>
       <Route

@@ -9,6 +9,7 @@ import { useState } from 'react';
 import ProfileMentorFormAbout from './ProfileMentorFormAbout';
 import { CheckFree, CheckInterviews } from '.';
 import MentorSkills from './MentorSkills';
+import { removeAuthorization } from '../../store/slices/AuthorizationSlice';
 
 const ProfileMentor = () => {
   const { lastName, name } = useAppSelector((state) => state.user);
@@ -16,13 +17,7 @@ const ProfileMentor = () => {
   const [isCheckedFree, setIsCheckedFree] = useState(false);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const handleSignOut = () => {
-    dispatch(removeUser());
-    localStorage.removeItem('user');
-    localStorage.removeItem('authorization');
-    localStorage.removeItem('role');
-    navigate('/login', { replace: true });
-  };
+
   const handleCheckboxInterviews = (checked: boolean) => {
     setIsCheckedInterviews(checked);
   };
@@ -37,6 +32,14 @@ const ProfileMentor = () => {
       const formData = new FormData();
       formData.append('files', image);
     }
+  };
+  const handleSignOut = () => {
+    navigate('/login', { replace: true });
+    dispatch(removeUser());
+    dispatch(removeAuthorization());
+    localStorage.removeItem('user');
+    localStorage.removeItem('authorization');
+    localStorage.removeItem('role');
   };
 
   return (

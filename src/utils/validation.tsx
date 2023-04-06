@@ -15,7 +15,6 @@ export const validationOnChange = Yup.object().shape({
     })
 
     .test('password', '3', (value) => {
-      console.log(value);
       const hasLength = value && value.length >= 8;
       const hasUpperCaseLetter = value && /[A-Z]/.test(value);
       const isLatinAlphabet = value && /^[a-zA-Z0-9]+$/.test(value);
@@ -25,7 +24,6 @@ export const validationOnChange = Yup.object().shape({
       return true;
     })
     .test('password', '4', (value) => {
-      console.log(value);
       const hasLength = value && value.length >= 8;
       const hasUpperCaseLetter = value && /[A-Z]/.test(value);
       const hasDigit = value && /\d/.test(value);
@@ -35,7 +33,6 @@ export const validationOnChange = Yup.object().shape({
       return true;
     })
     .test('password', '14', (value) => {
-      console.log(value);
       const hasLength = value && value.length >= 8;
       const hasDigit = value && /\d/.test(value);
       const isLatinAlphabet = value && /^[a-zA-Z0-9]+$/.test(value);
@@ -46,7 +43,6 @@ export const validationOnChange = Yup.object().shape({
     })
 
     .test('password', '5', (value) => {
-      console.log(value);
       const hasLength = value && value.length >= 8;
       const hasUpperCaseLetter = value && /[A-Z]/.test(value);
       if (!hasUpperCaseLetter && !hasLength) {
@@ -65,7 +61,6 @@ export const validationOnChange = Yup.object().shape({
     })
 
     .test('password', '7', (value) => {
-      console.log(value);
       const isLatinAlphabet = value && /^[a-zA-Z0-9]+$/.test(value);
       const hasUpperCaseLetter = value && /[A-Z]/.test(value);
 

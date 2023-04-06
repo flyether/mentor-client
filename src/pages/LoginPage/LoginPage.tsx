@@ -6,7 +6,7 @@ import { useAppSelector } from '../../store';
 import styles from './loginPage.module.css';
 
 const LoginPage = () => {
-  const { authorization } = useAppSelector((state) => state.user);
+  const { authorization } = useAppSelector((state) => state.authorization);
   const navigate = useNavigate();
 
   useEffect(() => {

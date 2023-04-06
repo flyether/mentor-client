@@ -3,7 +3,7 @@ import { useForm, FieldValues } from 'react-hook-form';
 import cnBind from 'classnames/bind';
 import cn from 'classnames';
 
-import { setUserAuthorization, useAppDispatch } from '../../../store';
+import { useAppDispatch } from '../../../store';
 import { Step2Registration } from './step2Registration';
 import { Button } from '../../atoms/Button/Button';
 
@@ -24,12 +24,13 @@ export const Step1Registration: FC = () => {
   const [focusStyleEmail, setFocusStyleEmail] = useState(false);
   const [focusStylePassword, setFocusPassword] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
-
+  const [Valuein, setValueIn] = useState(true);
   const {
     register,
     handleSubmit,
     clearErrors,
     trigger,
+    getValues,
     setValue,
     setError,
     formState: { errors },
@@ -54,6 +55,7 @@ export const Step1Registration: FC = () => {
   };
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValueIn(false);
     clearErrors('password');
     clearErrors('passwordOn');
     const passwordVal = e.target.value;
@@ -80,7 +82,7 @@ export const Step1Registration: FC = () => {
     dispatch(setRegRole(role));
     setIsStep2(true);
     localStorage.setItem('role', role);
-    dispatch(setUserAuthorization(role));
+    dispatch(setRegRole(role));
   };
 
   if (isStep2) {
@@ -164,10 +166,10 @@ export const Step1Registration: FC = () => {
             })}
             onClick={togglePasswordVisibility}
           />
-          {errors?.passwordOn ? (
-            <CasePassword message={errors?.passwordOn?.message as string} />
-          ) : (
+          {Valuein ? (
             <CasePasswordGray />
+          ) : (
+            <CasePassword message={errors?.passwordOn?.message as string} />
           )}
         </div>
         <Button type="submit" size="xl">

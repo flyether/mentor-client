@@ -3,6 +3,7 @@ import { commonApi } from './services/common.api';
 import userSlice from './slices/UserSlice';
 import regSlice from './slices/RegSlice';
 import userUpdateSlice from './slices/UserUpdateSlice';
+import authorizationSlice from './slices/AuthorizationSlice';
 
 import { setupListeners } from '@reduxjs/toolkit/query';
 
@@ -12,6 +13,7 @@ export const store = configureStore({
     user: userSlice,
     registration: regSlice,
     updateUser: userUpdateSlice,
+    authorization: authorizationSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(commonApi.middleware),
 });

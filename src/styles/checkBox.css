@@ -62,3 +62,48 @@
   right: 10px;
   z-index: 5;
 }
+
+
+input:checked {
+  background: rebeccapurple;
+}
+input[type=checkbox]{
+  background: rebeccapurple !important;;
+}
+input[type=checkbox]:checked{
+  background: rebeccapurple !important;
+  background-color: aqua;
+}
+
+
+input[type=checkbox] + span {
+  background: rebeccapurple;
+}
+ 
+/* Focus */
+input[type=checkbox]:focus + span {
+  background: rebeccapurple;
+}
+ 
+/* Checked */
+input[type=checkbox]:checked + span {
+  background: rebeccapurple;
+}
+ 
+/* Disabled */
+input[type=checkbox]:disabled + span {
+  background: rebeccapurple;
+}
+label input[type=checkbox]:disabled:checked + span {
+  background: rebeccapurple;
+}
+
+[type=checkbox]:checked + span:before {/* <-- ставим иконку, когда чекбокс включен  */
+  content: '\2714';
+  position: absolute;
+  top: -5px;
+  left: 0;
+  font-size:23px;
+  color:green;
+  background: rebeccapurple;
+}

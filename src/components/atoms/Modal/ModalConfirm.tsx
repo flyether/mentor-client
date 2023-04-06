@@ -3,11 +3,12 @@ import { FC, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ErrorModal } from '.';
 import { VerificationToken } from '../../../models';
-import { setRoleStor, setUser, setUserAuthorization, useAppDispatch } from '../../../store';
+import { setRoleStor, setUser, useAppDispatch } from '../../../store';
 import { AuthorizationUserAPI } from '../../../store/services/UserService';
 import { Button } from '../Button/Button';
 
 import styles from './Modal.module.css';
+import { setUserAuthorization } from '../../../store/slices/AuthorizationSlice';
 
 export const ModalConfirm: FC = () => {
   const [verificationTokenPost, { error, isLoading }] =
