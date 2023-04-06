@@ -24,9 +24,7 @@ export const Step1Registration: FC = () => {
   const [focusStyleEmail, setFocusStyleEmail] = useState(false);
   const [focusStylePassword, setFocusPassword] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
-  // const [isPasswordValueError, setPasswordValueError] = useState(false);
-  // const [isPasswordValid, setPasswordValid] = useState(false);
-  // const [isPasswordOnInput, setPasswordOnInput] = useState(false);
+
   const {
     register,
     handleSubmit,

@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import ProfileMentorFormAbout from './ProfileMentorFormAbout';
 import { CheckFree, CheckInterviews } from '.';
+import MentorSkills from './MentorSkills';
 
 const ProfileMentor = () => {
   const { lastName, name } = useAppSelector((state) => state.user);
@@ -75,13 +76,21 @@ const ProfileMentor = () => {
         </div>
         <CheckInterviews checked={isCheckedInterviews} onChange={handleCheckboxInterviews} />
       </div>
-      <div className={styles.colum}>
-        <div className={styles.title}>Обо мне</div>
+      <div className={styles.wrapper__up}>
+        <div className={styles.colum}>
+          <div className={styles.title}>Обо мне</div>
 
-        <ProfileMentorFormAbout />
-        <div className={styles.row}>
-          <div className={styles.text}>Я, провожу бесплатные консультации</div>
-          <CheckFree checked={isCheckedFree} onChange={handleCheckboxFree} />
+          <ProfileMentorFormAbout />
+          <div className={styles.row}>
+            <div className={styles.text}>Я, провожу бесплатные консультации</div>
+            <CheckFree checked={isCheckedFree} onChange={handleCheckboxFree} />
+          </div>
+        </div>
+      </div>
+      <div className={styles.wrapper__up}>
+        <div className={styles.colum}>
+          <div className={styles.title}>Ключевые навыки</div>
+          <MentorSkills />
         </div>
       </div>
     </div>

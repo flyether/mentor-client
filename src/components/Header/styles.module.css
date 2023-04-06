@@ -3,9 +3,9 @@
   justify-content: space-between;
   align-items: center;
   max-width: 1440px;
-  padding: 20px;
-  padding-left: calc(50% - 742px);
-  padding-right: calc(50% - 742px);
+  padding: 20px 80px 20px  30px ;
+  /* padding-left: calc(50% - 742px);
+  padding-right: calc(50% - 742px); */
   margin: auto;
 }
 

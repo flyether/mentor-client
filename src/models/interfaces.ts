@@ -26,6 +26,10 @@ export type User = {
   role: string;
   authorization?: string;
 };
+export type SelectLanguage = {
+  label: string;
+  value: string;
+};
 
 export type UserUpdate = {
   name: string;
@@ -33,6 +37,12 @@ export type UserUpdate = {
   lastName: string;
   role?: string;
   description?: string;
+  language?: string[];
+  cost?: {
+    value: string;
+    currency: string;
+  };
+  skills?: string[];
 };
 export type UserResponse = {
   user: User;
@@ -56,6 +66,7 @@ export type AuthorizationData = {
   password: string;
   role: string;
 };
+
 export type RegData = {
   name: string;
   lastName: string;
@@ -63,6 +74,7 @@ export type RegData = {
   password: string;
   role: string;
 };
+
 export interface MentorUpdate {
   id: string;
   body: Mentor;
@@ -81,8 +93,3 @@ export interface Menty {
   description?: string | string[];
   token?: string;
 }
-
-export type InitialValues = {
-  name: string;
-  lastName: string;
-};

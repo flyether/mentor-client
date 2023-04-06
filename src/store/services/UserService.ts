@@ -29,7 +29,7 @@ export const AuthorizationUserAPI = commonApi.injectEndpoints({
       },
     }),
 
-    verificationTokenPost: build.mutation<User, VerificationToken>({
+    verificationTokenPost: build.mutation<UserResponse, VerificationToken>({
       query: (token) => ({
         url: '/validate-email',
         method: 'POST',

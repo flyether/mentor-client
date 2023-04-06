@@ -1,56 +1,75 @@
 import { ChangeEvent, FormEventHandler, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '../../store';
-
+import { MultiSelect } from 'react-multi-select-component';
 import cnBind from 'classnames/bind';
 import styles from '../Authorization/registration/registration.module.css';
 import stylesForm from './Form.module.css';
-import { InitialValues } from '../../models';
 import {
+  setUpdateCost,
   setUpdateDescription,
+  setUpdateLanguage,
   setUpdateUserLastName,
   setUpdateUserName,
 } from '../../store/slices/UserUpdateSlice';
+import { options } from './utils/selectOptions';
+import { SelectLanguage } from '../../models';
 
 const cx = cnBind.bind(styles);
 
 const ProfileMentorFormAbout = () => {
+  const [selected, setSelected] = useState<SelectLanguage[]>([]);
   const { lastName, name } = useAppSelector((state) => state.user);
   const [focusStyleName, setFocusStyleName] = useState(false);
   const [focusStyleLastName, setFocusStylesLastName] = useState(false);
+  const [focusStyleCost, setFocusCost] = useState(false);
   const dispatch = useAppDispatch();
-  const [initialValues, setInitialValues] = useState<InitialValues | undefined>(undefined);
+  const [coastDollar, setCoastDollar] = useState(false);
+
+  const [nameInput, setNameInput] = useState(name);
+  const [lastNameInput, setLastNameInput] = useState(lastName);
   const {
     register,
     clearErrors,
     trigger,
-    setValue,
-    getValues,
     formState: { errors },
   } = useForm({ mode: 'onBlur' });
 
   useEffect(() => {
-    setInitialValues({
-      lastName: lastName,
-      name: name,
-    });
-  }, [name, lastName]);
+    const newArray = selected.map((obj) => obj.value);
+    dispatch(setUpdateLanguage(newArray));
+  }, [dispatch, selected]);
 
   const handleBlurName = () => {
     setFocusStyleName(false);
-    const nameValue = getValues('name');
-    if (!nameValue) {
-      setValue('name', initialValues?.name || '');
-    }
     trigger('name');
   };
+
   const handleBlurLastName = () => {
     setFocusStyleName(false);
-    const nameValue = getValues('lastName');
-    if (!nameValue) {
-      setValue('lastName', initialValues?.lastName || '');
-    }
     trigger('lastName');
+  };
+
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    const keyValue = event.key;
+    const regex = /^[0-9]+$/;
+
+    if (!regex.test(keyValue)) {
+      event.preventDefault();
+    }
+  };
+
+  const handleCost = (event: ChangeEvent<HTMLInputElement>) => {
+    let currency = 'rub';
+    if (coastDollar) currency = 'dollar';
+    const cost = {
+      value: event.target.value.toString(),
+      currency: currency,
+    };
+    dispatch(setUpdateCost(cost));
+  };
+  const toggleCost = () => {
+    setCoastDollar(coastDollar ? false : true);
   };
 
   const handleDescriptionChange: FormEventHandler<HTMLTextAreaElement> = (event) => {
@@ -58,11 +77,12 @@ const ProfileMentorFormAbout = () => {
   };
 
   const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setNameInput(event.target.value);
     clearErrors('name');
-    setValue('name', event.target.value ?? initialValues?.name);
     dispatch(setUpdateUserName(event.target.value));
   };
   const handleLastNameChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setLastNameInput(event.target.value);
     clearErrors('lastName');
     dispatch(setUpdateUserLastName(event.target.value));
   };
@@ -75,7 +95,7 @@ const ProfileMentorFormAbout = () => {
             <div className={stylesForm.text}>Имя</div>
             <input
               type="text"
-              defaultValue={initialValues?.name}
+              value={nameInput}
               className={cx(styles.input, {
                 [styles.inputError]: errors.name,
                 [styles.focusStyle]: focusStyleName,
@@ -105,7 +125,7 @@ const ProfileMentorFormAbout = () => {
             <div className={stylesForm.text}>Фамилия</div>
             <input
               type="text"
-              defaultValue={initialValues?.lastName}
+              value={lastNameInput}
               className={cx(styles.input, {
                 [styles.inputError]: errors.lastName,
                 [styles.focusStyle]: focusStyleLastName,
@@ -140,6 +160,35 @@ const ProfileMentorFormAbout = () => {
           {...register('description')}
           placeholder="Опиши, чем ты можешь быть полезен менти"
         />
+        <div className={stylesForm.text}>На каком языке ты хотел бы разговаривать с менти?</div>
+        <MultiSelect
+          options={options}
+          value={selected}
+          onChange={setSelected}
+          labelledBy={'Выбирите язык'}
+          isCreatable={true}
+          hasSelectAll={false}
+          className={stylesForm.input}
+        />
+        <div className={stylesForm.text}>Стоимость за 1 час</div>
+        <div className={stylesForm.position}>
+          <input
+            type="text"
+            inputMode="numeric"
+            className={cx(`${styles.input} ${stylesForm.margin}`, {
+              [styles.inputError]: errors.password,
+              [styles.focusStyle]: focusStyleCost,
+            })}
+            {...register('cost')}
+            onKeyDown={handleKeyPress}
+            onFocus={() => setFocusCost(true)}
+            onInput={handleCost}
+            placeholder="Стоимость"
+          />
+          <button type="button" className={stylesForm.cost} onClick={toggleCost}>
+            {coastDollar ? '$' : '₽'}
+          </button>
+        </div>
       </div>
     </form>
   );

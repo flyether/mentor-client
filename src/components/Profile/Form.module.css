@@ -10,6 +10,7 @@
 }
 
 .container {
+  width: 100%;
   max-width: 300px;
   display: flex;
   flex-direction: column;
@@ -35,4 +36,38 @@ margin-bottom: 5px;
   font-size: 20px;
   line-height: 27px;
   color: black;
+  margin-bottom: 22px;
+}
+
+
+.margin{
+  margin-bottom: 22px;
+}
+
+.position{
+  position: relative;
+}
+.cost{
+position: absolute;
+top:10px;
+right: 15px;
+background: none;
+font-size: 28px;
+}
+
+
+.input {
+  position: relative;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 27px;
+  margin-bottom: 22px;
+  width: 100%;
+  min-height: 60px;
+  padding: 10px 20px;
+  /* margin-bottom: 10px; */
+  color: black;
+  background: #ffffff;
+  border-radius: 10px;
 }

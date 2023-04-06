@@ -12,6 +12,10 @@
 .colum {
   display: flex;
   flex-direction: column;
+
+}
+.colum {
+  width: 100%;
 }
 .row,
 .wrapper__up {

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { User, UserUpdate } from '../../models/interfaces';
+import { UserUpdate } from '../../models/interfaces';
 
 const userFromLocalStorage = localStorage.getItem('user');
 console.log(userFromLocalStorage);
@@ -9,6 +9,12 @@ const initialState: UserUpdate = {
   email: '',
   role: '',
   lastName: '',
+  language: [],
+  cost: {
+    value: '',
+    currency: '',
+  },
+  skills: [],
 };
 
 const userUpdateSlice = createSlice({
@@ -17,6 +23,15 @@ const userUpdateSlice = createSlice({
   reducers: {
     setUpdateUserName(state, action) {
       state.name = action.payload;
+    },
+    setUpdateSkills(state, action) {
+      state.skills = action.payload;
+    },
+    setUpdateCost(state, action) {
+      state.cost = action.payload;
+    },
+    setUpdateLanguage(state, action) {
+      state.language = action.payload;
     },
     setUpdateUserLastName(state, action) {
       state.lastName = action.payload;
@@ -31,6 +46,13 @@ const userUpdateSlice = createSlice({
   },
 });
 
-export const { setUpdateUserName, setUpdateDescription, setUpdateRoleStor, setUpdateUserLastName } =
-  userUpdateSlice.actions;
+export const {
+  setUpdateSkills,
+  setUpdateCost,
+  setUpdateUserName,
+  setUpdateLanguage,
+  setUpdateDescription,
+  setUpdateRoleStor,
+  setUpdateUserLastName,
+} = userUpdateSlice.actions;
 export default userUpdateSlice.reducer;
