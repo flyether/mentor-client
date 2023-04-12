@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/mentor-client/static/css/main.773740eb.css",
-    "main.js": "/mentor-client/static/js/main.330600d0.js",
+    "main.css": "/mentor-client/static/css/main.a78b5da5.css",
+    "main.js": "/mentor-client/static/js/main.83af0bc8.js",
     "static/media/cone.svg": "/mentor-client/static/media/cone.e5051fa70c19d68da24b14d1161f6a53.svg",
     "static/media/user.png": "/mentor-client/static/media/user.f1892270f91d1604c976.png",
     "static/media/logoMentor.svg": "/mentor-client/static/media/logoMentor.2094d489878455ca90b1.svg",
@@ -11,11 +11,12 @@
     "index.html": "/mentor-client/index.html",
     "static/media/upload.svg": "/mentor-client/static/media/upload.338a15d2ea4d8269beed.svg",
     "static/media/arrow-left.svg": "/mentor-client/static/media/arrow-left.d8edcd297cbca92571b1438106562523.svg",
-    "main.773740eb.css.map": "/mentor-client/static/css/main.773740eb.css.map",
-    "main.330600d0.js.map": "/mentor-client/static/js/main.330600d0.js.map"
+    "static/media/select.svg": "/mentor-client/static/media/select.2a3055a161280cd506a7.svg",
+    "main.a78b5da5.css.map": "/mentor-client/static/css/main.a78b5da5.css.map",
+    "main.83af0bc8.js.map": "/mentor-client/static/js/main.83af0bc8.js.map"
   },
   "entrypoints": [
-    "static/css/main.773740eb.css",
-    "static/js/main.330600d0.js"
+    "static/css/main.a78b5da5.css",
+    "static/js/main.83af0bc8.js"
   ]
 }
