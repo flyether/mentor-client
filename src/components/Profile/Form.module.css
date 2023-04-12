@@ -1,6 +1,11 @@
 .form{
   margin-bottom: 12px;
 }
+.row{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
 
 .wrapper{
   display: flex;
@@ -23,7 +28,12 @@ line-height: 20px;
 color: #C0C0C0;
 margin-bottom: 5px;
 }
-
+.text__plus{
+  margin-bottom: 10px; 
+  font-size: 45px;
+line-height: 20px;
+color: #C0C0C0;
+}
 .textarea {
   resize: none;
   padding: 10px 20px;
@@ -43,18 +53,26 @@ margin-bottom: 5px;
 .margin{
   margin-bottom: 22px;
 }
+.margin__top{
+  margin-top: 80px;
+}
 
 .position{
   position: relative;
 }
-.cost{
+.price{
 position: absolute;
 top:10px;
 right: 15px;
 background: none;
 font-size: 28px;
 }
-
+.title {
+  margin-bottom: 40px;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 33px;
+}
 
 .input {
   position: relative;
@@ -70,4 +88,42 @@ font-size: 28px;
   color: black;
   background: #ffffff;
   border-radius: 10px;
+}
+
+.skills__container, .skill__container{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  list-style-type: none;
+}
+.skills__container{
+  margin: 5px auto 80px;
+}
+.skillsList{
+  margin-top: 5px;
+  min-height: 42px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 10px;
+  background: #504f4f;
+}
+
+.trash{
+  background: url(../../assets/img/trash.png);
+  background-size: cover;
+  width: 16px;
+  height: 16px;
+
+
+}
+
+.skill__container{
+align-items: center;
+padding: 0 6px;
+min-height: 40px;
+background: #3B4050;
+border: 1px solid #3B4050;
+border-radius: 10px;
 }

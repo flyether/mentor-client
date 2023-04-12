@@ -13,7 +13,7 @@
 
 .loading__spinner {
   border: 6px solid rgba(105, 49, 149, 1);
-  border-top: 6px solid gray;
+  border-top: 6px solid rgba(0, 0, 0, 0.5);
   border-radius: 50%;
   width: 70px;
   height: 70px;

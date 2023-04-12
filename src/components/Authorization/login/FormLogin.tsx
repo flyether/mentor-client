@@ -6,13 +6,15 @@ import cn from 'classnames';
 
 import { AuthorizationUserAPI } from '../../../store/services/UserService';
 import { AuthorizationData } from '../../../models';
-// import { ErrorModal } from '../../atoms/Modal';
 import { Button } from '../../atoms/Button/Button';
 import { ForgotPassword } from './forgot-password';
 
 import styles from '../registration/registration.module.css';
-import { setRoleStor, setUser, useAppDispatch } from '../../../store';
-import { setUserAuthorization } from '../../../store/slices/AuthorizationSlice';
+import { setUser, useAppDispatch } from '../../../store';
+import {
+  setAuthorizationRole,
+  setUserAuthorization,
+} from '../../../store/slices/AuthorizationSlice';
 
 const cx = cnBind.bind(styles);
 
@@ -68,7 +70,7 @@ const FormLogin: FC = () => {
     const res = await authorizationUser(userData).unwrap();
     if (res) {
       localStorage.setItem('role', role);
-      dispatch(setRoleStor(role));
+      dispatch(setAuthorizationRole(role));
       localStorage.setItem('user', JSON.stringify(res.user));
       dispatch(setUser(res.user));
       localStorage.setItem('authorization', 'authorization');

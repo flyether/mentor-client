@@ -28,7 +28,7 @@
   border-radius: 50%;
   content: '';
   position: absolute;
-  top: 3px;
+  top: 4px;
   left: 3px;
   width: 24px;
   height: 24px;
@@ -64,46 +64,47 @@
 }
 
 
-input:checked {
-  background: rebeccapurple;
-}
-input[type=checkbox]{
-  background: rebeccapurple !important;;
-}
-input[type=checkbox]:checked{
-  background: rebeccapurple !important;
-  background-color: aqua;
+
+
+
+/* для компонента селект */
+.rmsc{--rmsc-main: #ffffff;--rmsc-hover: #f1f3f5;--rmsc-selected: #e2e6ea;--rmsc-border: #ffffff;--rmsc-gray: #aaa;--rmsc-bg: #fff;--rmsc-p: 10px;--rmsc-radius: 4px;--rmsc-h: 38px}
+
+.dropdown-content {
+  
+ }
+
+  
+
+.item-renderer input[type="checkbox"]{
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 
-input[type=checkbox] + span {
-  background: rebeccapurple;
-}
- 
-/* Focus */
-input[type=checkbox]:focus + span {
-  background: rebeccapurple;
-}
- 
 /* Checked */
-input[type=checkbox]:checked + span {
-  background: rebeccapurple;
+.item-renderer input[type=checkbox]:checked + span {
+  border-left: #a941f8b9 3px solid;
+padding: 2px;
 }
- 
-/* Disabled */
-input[type=checkbox]:disabled + span {
-  background: rebeccapurple;
-}
-label input[type=checkbox]:disabled:checked + span {
-  background: rebeccapurple;
+  
+
+select {
+  
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url(../assets/svg/select.svg) !important;
+  background-repeat: no-repeat !important;
+
+  background-position: calc(100% - 20px) center!important;
+
 }
 
-[type=checkbox]:checked + span:before {/* <-- ставим иконку, когда чекбокс включен  */
-  content: '\2714';
-  position: absolute;
-  top: -5px;
-  left: 0;
-  font-size:23px;
-  color:green;
-  background: rebeccapurple;
+
+.dropdown-heading-dropdown-arrow{
+  background-image: url(../assets/svg/select.svg);
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding-right: 20px;
 }

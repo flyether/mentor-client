@@ -1,30 +1,22 @@
-import { ChangeEvent, FormEventHandler, useEffect, useState } from 'react';
+import { ChangeEvent, FormEventHandler, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '../../store';
-import { MultiSelect } from 'react-multi-select-component';
 import cnBind from 'classnames/bind';
 import styles from '../Authorization/registration/registration.module.css';
 import stylesForm from './Form.module.css';
 import {
-  setUpdateCost,
-  setUpdateDescription,
-  setUpdateLanguage,
+  setUpdateAbout,
   setUpdateUserLastName,
   setUpdateUserName,
 } from '../../store/slices/UserUpdateSlice';
-import { options } from './utils/selectOptions';
-import { SelectLanguage } from '../../models';
 
 const cx = cnBind.bind(styles);
 
-const ProfileMentorFormAbout = () => {
-  const [selected, setSelected] = useState<SelectLanguage[]>([]);
+const ProfileFormAbout = () => {
   const { lastName, name } = useAppSelector((state) => state.user);
   const [focusStyleName, setFocusStyleName] = useState(false);
   const [focusStyleLastName, setFocusStylesLastName] = useState(false);
-  const [focusStyleCost, setFocusCost] = useState(false);
   const dispatch = useAppDispatch();
-  const [coastDollar, setCoastDollar] = useState(false);
 
   const [nameInput, setNameInput] = useState(name);
   const [lastNameInput, setLastNameInput] = useState(lastName);
@@ -34,11 +26,6 @@ const ProfileMentorFormAbout = () => {
     trigger,
     formState: { errors },
   } = useForm({ mode: 'onBlur' });
-
-  useEffect(() => {
-    const newArray = selected.map((obj) => obj.value);
-    dispatch(setUpdateLanguage(newArray));
-  }, [dispatch, selected]);
 
   const handleBlurName = () => {
     setFocusStyleName(false);
@@ -50,30 +37,8 @@ const ProfileMentorFormAbout = () => {
     trigger('lastName');
   };
 
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    const keyValue = event.key;
-    const regex = /^[0-9]+$/;
-
-    if (!regex.test(keyValue)) {
-      event.preventDefault();
-    }
-  };
-
-  const handleCost = (event: ChangeEvent<HTMLInputElement>) => {
-    let currency = 'rub';
-    if (coastDollar) currency = 'dollar';
-    const cost = {
-      value: event.target.value.toString(),
-      currency: currency,
-    };
-    dispatch(setUpdateCost(cost));
-  };
-  const toggleCost = () => {
-    setCoastDollar(coastDollar ? false : true);
-  };
-
   const handleDescriptionChange: FormEventHandler<HTMLTextAreaElement> = (event) => {
-    dispatch(setUpdateDescription(event.currentTarget.value));
+    dispatch(setUpdateAbout(event.currentTarget.value));
   };
 
   const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -88,7 +53,8 @@ const ProfileMentorFormAbout = () => {
   };
 
   return (
-    <form className={stylesForm.form}>
+    <>
+      <div className={stylesForm.title}>Обо мне</div>
       <div className={styles.inputs_wrapper}>
         <div className={stylesForm.wrapper}>
           <div className={stylesForm.container}>
@@ -157,42 +123,12 @@ const ProfileMentorFormAbout = () => {
         <textarea
           onInput={handleDescriptionChange}
           className={stylesForm.textarea}
-          {...register('description')}
+          {...register('about')}
           placeholder="Опиши, чем ты можешь быть полезен менти"
         />
-        <div className={stylesForm.text}>На каком языке ты хотел бы разговаривать с менти?</div>
-        <MultiSelect
-          options={options}
-          value={selected}
-          onChange={setSelected}
-          labelledBy={'Выбирите язык'}
-          isCreatable={true}
-          hasSelectAll={false}
-          className={stylesForm.input}
-        />
-        <div className={stylesForm.text}>Стоимость за 1 час</div>
-        <div className={stylesForm.position}>
-          <input
-            type="text"
-            inputMode="numeric"
-            className={cx(`${styles.input} ${stylesForm.margin}`, {
-              [styles.inputError]: errors.password,
-              [styles.focusStyle]: focusStyleCost,
-            })}
-            {...register('cost')}
-            onKeyDown={handleKeyPress}
-            onFocus={() => setFocusCost(true)}
-            onInput={handleCost}
-            placeholder="Стоимость"
-          />
-          <button type="button" className={stylesForm.cost} onClick={toggleCost}>
-            {coastDollar ? '$' : '₽'}
-          </button>
-        </div>
-        <input name="highload1" type="checkbox" />
       </div>
-    </form>
+    </>
   );
 };
 
-export default ProfileMentorFormAbout;
+export default ProfileFormAbout;

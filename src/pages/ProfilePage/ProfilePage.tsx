@@ -1,13 +1,11 @@
-import ProfileMentor from '../../components/Profile/ProfileMentor';
-import { User } from '../../models';
+import { ProfileMentee, ProfileMentor } from '../../components/Profile';
 import { useAppSelector } from '../../store';
-import styles from './ProfilePage.module.css';
 
 const ProfilePage = () => {
   // const userData: User = useAppSelector((state) => state.user) || null;
-  const { role } = useAppSelector((state) => state.user);
+  const { role } = useAppSelector((state) => state.authorization);
   console.log(role);
-  if (role === 'mentee') return <div className={styles.container}>менти</div>;
+  if (role === 'mentee') return <ProfileMentee />;
   if (role === 'mentor') return <ProfileMentor />;
   return null;
 };

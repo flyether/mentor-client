@@ -6,7 +6,8 @@ import { Button } from '../atoms/Button/Button';
 import styles from './styles.module.css';
 
 export const Header = () => {
-  const { authorization, lastName, name } = useAppSelector((state) => state.user);
+  const { lastName, name } = useAppSelector((state) => state.user);
+  const { authorization } = useAppSelector((state) => state.authorization);
   const navigate = useNavigate();
   const login = () => {
     navigate('/login', { replace: true });

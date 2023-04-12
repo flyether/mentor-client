@@ -1,15 +1,5 @@
 @import './normalize.css';
 @import './global.css';
 @import './checkBox.css';
-/* .rmsc{
-   background-color: aqua;
-} */
 
-/* для компонента селект */
-.rmsc{--rmsc-main: #ffffff;--rmsc-hover: #f1f3f5;--rmsc-selected: #e2e6ea;--rmsc-border: #ffffff;--rmsc-gray: #aaa;--rmsc-bg: #fff;--rmsc-p: 10px;--rmsc-radius: 4px;--rmsc-h: 38px}
 
-.dropdown-content {
-  
- }
-
-  

@@ -1,5 +1,11 @@
-export * from './ProfileMentor';
-export * from './ProfileMentorFormAbout';
+export { ProfileMentor } from './ProfileMentor';
+export * from './ProfileFormAbout';
+export * from './ProfileFormLangPrice';
 export * from './MentorSkills';
 export { CheckInterviews } from './CheckInterviews';
 export { CheckFree } from './CheckFree';
+export * from './TestInterviews';
+export { ProfilePicSignOut } from './ProfilePicSignOut';
+export { ProfileExperience } from './ProfileExperience';
+export { ProfileMentee } from './ProfileMentee';
+export { ProfileEducation } from './ProfileEducation';

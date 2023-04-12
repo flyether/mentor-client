@@ -10,7 +10,7 @@ const initialState: RegData = {
 };
 
 const regSlice = createSlice({
-  name: 'user',
+  name: 'regUser',
   initialState,
   reducers: {
     setRegEmail(state, action) {

@@ -63,7 +63,9 @@
   background: #ffffff;
   border-radius: 10px;
 }
-
+.focusStyle{
+  border: 2px solid #903bd3;
+}
 .input::placeholder {
   color: #c0c0c0;
 }
